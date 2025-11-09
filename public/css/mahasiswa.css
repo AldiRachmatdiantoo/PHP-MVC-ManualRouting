@@ -119,3 +119,23 @@ button.delete {
 button.delete:hover {
     background-color: #c23616;
 }
+.btn-tambah {
+    background-color: #28a745;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 6px;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+}
+
+.btn-tambah a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.btn-tambah:hover {
+    background-color: #218838;
+    transform: scale(1.03);
+}

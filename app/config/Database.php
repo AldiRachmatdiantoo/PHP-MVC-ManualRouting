@@ -9,10 +9,11 @@ class Database
     private $pdo;
     private $stmt;
 
-    public function getConnection()
+    public function __construct()
     {
         $this->pdo = new PDO("mysql:host=$this->host;dbname=$this->dbname", $this->username, $this->password);
-        $this->pdo->setAttribute(PDO::ATTR_PERSISTENT, PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $this->pdo->setAttribute(PDO::ATTR_PERSISTENT, true);
+        $this->pdo->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         return $this->pdo;
     }
     public function query($query)
@@ -44,5 +45,8 @@ class Database
     {
         $this->execute();
         return $this->stmt->fetch(PDO::FETCH_ASSOC);
+    }
+    public function rowCount(){
+        return $this->stmt->rowCount();
     }
 }

@@ -1,6 +1,6 @@
     <div class="container">
         <h2>Tambah Mahasiswa</h2>
-        <form action="proses_tambah.php" method="POST">
+        <form action="<?=BASEURL?>/mahasiswa/store" method="POST">
             <div class="form-group">
                 <label for="nama">Nama:</label>
                 <input type="text" id="nama" name="nama" required>

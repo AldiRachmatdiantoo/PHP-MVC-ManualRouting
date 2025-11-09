@@ -5,7 +5,7 @@ class MahasiswaController extends Controller
     public function index()
     {
         $this->view('templates/header', ['title' => 'List Mahasiswa', 'style' => 'mahasiswa']);
-        $this->view('mahasiswa/mahasiswa', ['mahasiswa' => $this->model('Mahasiswa')->index()]);
+        $this->view('mahasiswa/mahasiswa', ['mahasiswa' => $this->model('Mahasiswa')->all()]);
         $this->view('templates/footer');
     }
     public function create()
@@ -14,10 +14,30 @@ class MahasiswaController extends Controller
         $this->view('mahasiswa/create');
         $this->view('templates/footer');
     }
-    public function edit()
+    public function store()
+    {
+        if ($_SERVER['REQUEST_METHOD'] === "POST" && $this->model('Mahasiswa')->create() > 0) {
+            header('Location: ' . BASEURL . '/mahasiswa');
+            exit;
+        } else {
+            header('Location: ' . BASEURL . '/mahasiswa');
+            exit;
+        }
+    }
+    public function edit($nim)
     {
         $this->view('templates/header', ['title' => 'Edit Mahasiswa', 'style' => 'tambah-mahasiswa']);
-        $this->view('mahasiswa/edit');
+        $this->view('mahasiswa/edit', ['mhsTarget' => $this->model('Mahasiswa')->getData($nim)]);
         $this->view('templates/footer');
+    }
+    public function update()
+    {
+        if ($_SERVER['REQUEST_METHOD'] === "POST" && $this->model('Mahasiswa')->update() > 0) {
+            header('Location: ' . BASEURL . '/mahasiswa');
+            exit;
+        } else {
+            header('Location: ' . BASEURL . '/mahasiswa');
+            exit;
+        }
     }
 }
