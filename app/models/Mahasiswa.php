@@ -37,4 +37,10 @@ class Mahasiswa
         $this->db->execute();
         return $this->db->rowCount();
     }
+    public function delete($nim){
+        $this->db->query("DELETE FROM mahasiswa WHERE nim = :nim");
+        $this->db->bind(':nim', $nim);
+        $this->db->execute();
+        return $this->db->rowCount();
+    }
 }

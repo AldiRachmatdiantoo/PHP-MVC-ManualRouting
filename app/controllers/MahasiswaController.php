@@ -24,15 +24,31 @@ class MahasiswaController extends Controller
             exit;
         }
     }
-    public function edit($nim)
+    public function edit($nim = null)
     {
         $this->view('templates/header', ['title' => 'Edit Mahasiswa', 'style' => 'tambah-mahasiswa']);
-        $this->view('mahasiswa/edit', ['mhsTarget' => $this->model('Mahasiswa')->getData($nim)]);
+        $data['mhsTarget'] = $this->model('Mahasiswa')->getData($nim);
+        if ($data['mhsTarget']) {
+            $this->view('mahasiswa/edit', ['mhsTarget' => $data['mhsTarget']]);
+        } else {
+            header('Location: ' . BASEURL . '/mahasiswa');
+            exit;
+        }
         $this->view('templates/footer');
     }
     public function update()
     {
         if ($_SERVER['REQUEST_METHOD'] === "POST" && $this->model('Mahasiswa')->update() > 0) {
+            header('Location: ' . BASEURL . '/mahasiswa');
+            exit;
+        } else {
+            header('Location: ' . BASEURL . '/mahasiswa');
+            exit;
+        }
+    }
+    public function delete($nim = null)
+    {
+        if ($_SERVER['REQUEST_METHOD'] === "GET" && $this->model('Mahasiswa')->delete($nim) > 0) {
             header('Location: ' . BASEURL . '/mahasiswa');
             exit;
         } else {
