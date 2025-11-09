@@ -1,0 +1,121 @@
+/* Reset default margin/padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f5f6fa;
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+}
+
+.container {
+    background-color: #fff;
+    padding: 30px 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 800px;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #2f3640;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #2f3640;
+}
+
+input[type="text"],
+input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #dcdde1;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus {
+    border-color: #4cd137;
+    outline: none;
+}
+
+button.btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #4cd137;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button.btn:hover {
+    background-color: #44bd32;
+}
+
+/* Table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 30px;
+}
+
+table th, table td {
+    border: 1px solid #dcdde1;
+    padding: 10px;
+    text-align: left;
+}
+
+table th {
+    background-color: #f1f2f6;
+    color: #2f3640;
+}
+
+table tr:nth-child(even) {
+    background-color: #f5f6fa;
+}
+
+/* Buttons edit & delete */
+button.edit {
+    background-color: #00a8ff;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    margin-right: 5px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+button.edit:hover {
+    background-color: #0097e6;
+}
+
+button.delete {
+    background-color: #e84118;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+button.delete:hover {
+    background-color: #c23616;
+}
