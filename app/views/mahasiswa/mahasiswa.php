@@ -12,12 +12,13 @@
             </tr>
         </thead>
         <tbody>
+            <?php foreach($data['mahasiswa'] as $index => $mhs):?>
             <tr>
-                <td>1</td>
-                <td>Aldi Rachmatdianto</td>
-                <td>123456</td>
-                <td>Teknik Informatika</td>
-                <td>aldi@example.com</td>
+                <td><?=$index+1?></td>
+                <td><?=$mhs['nama'];?></td>
+                <td><?=$mhs['nim'];?></td>
+                <td><?=$mhs['jurusan'];?></td>
+                <td><?=$mhs['email'];?></td>
                 <td>
                     <a href="<?= BASEURL ?>/mahasiswa/edit">
                         <button class="edit">Edit</button>
@@ -25,6 +26,7 @@
                     <button class="delete">Hapus</button>
                 </td>
             </tr>
+            <?php endforeach;?>
             <tr>
                 <td>2</td>
                 <td>Siti Nurhaliza</td>
